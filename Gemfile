@@ -37,10 +37,10 @@ group :development do
   gem 'spring'
   gem 'puma', '~> 3.8', '>= 3.8.2'
   gem 'brakeman', :require => false
+  gem 'faker', '~> 1.7', '>= 1.7.3'
 end
 
 group :test do
-  gem 'faker', '~> 1.7', '>= 1.7.3'
   gem 'capybara', '~> 2.13'
   gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
   gem 'launchy', '~> 2.4', '>= 2.4.3'
