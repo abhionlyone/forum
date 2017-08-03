@@ -24,6 +24,7 @@ gem 'paperclip', '~> 5.1'
 gem 'aws-sdk', '~> 2.9', '>= 2.9.39'
 gem 'remotipart', '~> 1.3', '>= 1.3.1'
 gem 'bootstrap-glyphicons'
+gem 'rails-erd', require: false, group: :development
 
 group :development, :test do
   gem 'byebug'
