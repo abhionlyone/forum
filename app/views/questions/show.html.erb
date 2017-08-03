@@ -1,0 +1,55 @@
+<%- model_class = Question -%>
+<div class="page-header">
+  <h1><%= @question.title %></h1>
+</div>
+
+<dl class="dl-horizontal">
+
+  <dt>
+    <strong><%= model_class.human_attribute_name(:description) %>:</strong>
+  </dt>
+  <dd><%= @question.description %></dd>
+  <dt>
+    <strong>Asked by user:</strong>
+  </dt>
+  <dd><%= @question.user_id %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              questions_path, :class => 'btn btn-default'  %>
+<% if current_user == @question.user %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_question_path(@question), :class => 'btn btn-default' %>
+<% end %>
+<% if current_user %>
+<%= form_for Answer.new,:url => url_for(:controller => 'answers', :action => 'create'), :html => { :class => "form-horizontal answer" } do |f| %>
+<div class="form-group">
+  <label for="pwd">Share Your Resposne</label>
+  <%= f.text_area :description, :class => 'form-control', :placeholder => 'Type here...' %>
+  <%= f.hidden_field :question_id, value: @question.id %>
+</div>
+<button type="submit" class="btn btn-success">Submit</button>
+<% end %>
+<% else %>
+  <p><em><%= link_to 'Login', new_user_session_path %> to share your response.</em></p>
+<% end %>
+
+<h2>User Responses:</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>User Id</th>
+      <th>Answer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @answers.each do |ans| %>
+    <tr>
+      <td><%= ans.user_id %></td>
+      <td>
+        <em><%= ans.description %></em>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
