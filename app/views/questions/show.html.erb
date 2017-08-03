@@ -21,7 +21,7 @@
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_question_path(@question), :class => 'btn btn-default' %>
 <% end %>
-<% if current_user %>
+<% if current_user && current_user != @question.user %>
 <%= form_for Answer.new,:url => url_for(:controller => 'answers', :action => 'create'), :html => { :class => "form-horizontal answer" } do |f| %>
 <div class="form-group">
   <label for="pwd">Share Your Resposne</label>
@@ -30,7 +30,8 @@
 </div>
 <button type="submit" class="btn btn-success">Submit</button>
 <% end %>
-<% else %>
+<% end %>
+<% if !current_user %>
   <p><em><%= link_to 'Login', new_user_session_path %> to share your response.</em></p>
 <% end %>
 

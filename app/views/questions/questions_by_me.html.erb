@@ -1,13 +1,7 @@
 <%- model_class = Question -%>
-<div class="container">
-  <div class="jumbotron">
-    <h1>Welocome</h1>
-    <p>Our Forum mission is to share and grow the world’s knowledge.</p>
-    <p><strong><%= link_to 'Browse through all questions', questions_path %></strong></p>
-  </div>
+<div class="page-header">
+  <h1>Questions asked by you..</h1>
 </div>
-<% if current_user %>
-<h2><em>Questions that you may wish to answer</em></h2>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -30,4 +24,5 @@
     <% end %>
   </tbody>
 </table>
-<% end %>
+
+<%= link_to 'Ask Question', new_question_path, :class => 'btn btn-primary' %>

@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :tags
   resources :answers
-  resources :questions
+  resources :questions do
+    collection do
+      get :questions_by_me
+    end
+  end
   root 'home#index'
 
   devise_for :users

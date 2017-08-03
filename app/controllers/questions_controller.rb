@@ -6,7 +6,10 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     @questions = Question.all
+  end
 
+  def questions_by_me
+    @questions = current_user.questions
   end
 
   # GET /questions/1
