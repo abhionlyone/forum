@@ -11,7 +11,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 4.2', '>= 4.2.1'
-gem 'apartment', '~> 1.2'
 gem 'devise_invitable', '~> 1.7', '>= 1.7.2'
 gem 'twitter-bootstrap-rails'
 gem 'figaro'
