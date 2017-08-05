@@ -14,8 +14,10 @@ class User < ActiveRecord::Base
   after_update :create_user_tags
 
   def create_user_tags
-    user_tags.destroy_all
-    tags.each {|tag| self.user_tags.create(tag_id: tag)}
+    if !tags.nil?
+      user_tags.destroy_all
+      tags.each {|tag| self.user_tags.create(tag_id: tag)} if !tags.nil?
+    end  
   end
 
   def might_be_interseted_questions

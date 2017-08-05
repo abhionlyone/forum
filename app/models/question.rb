@@ -9,8 +9,10 @@ class Question < ActiveRecord::Base
   after_update :create_question_tags
 
   def create_question_tags
-    question_tags.destroy_all
-    tags.each {|tag| self.question_tags.create(tag_id: tag)}
+    if !tags.nil?
+      question_tags.destroy_all
+      tags.each {|tag| self.question_tags.create(tag_id: tag)}
+    end  
   end
 
 end
