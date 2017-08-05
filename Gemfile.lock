@@ -54,6 +54,8 @@ GEM
     bootstrap-glyphicons (0.0.1)
       railties (>= 3.0)
       sass (>= 3.2)
+    bootstrap-multiselect-rails (0.9.9)
+      rails (>= 4.0.0)
     brakeman (3.6.2)
     builder (3.2.3)
     byebug (9.0.6)
@@ -142,7 +144,7 @@ GEM
       tilt
     letter_opener (1.4.1)
       launchy (~> 2.2)
-    libv8 (3.16.14.19-x86_64-darwin-16)
+    libv8 (3.16.14.19)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.6)
@@ -291,6 +293,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk (~> 2.9, >= 2.9.39)
   bootstrap-glyphicons
+  bootstrap-multiselect-rails
   brakeman
   byebug
   capybara (~> 2.13)

@@ -13,6 +13,14 @@
     <strong>Asked by user:</strong>
   </dt>
   <dd><%= @question.user_id %></dd>
+  <dt>
+    <strong>Tagged in:</strong>
+  </dt>
+  <dd>
+    <% @question.question_tags.each do |q| %>
+    <kbd><%= q.tag.try(:name) %></kbd>
+    <% end %>
+  </dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
@@ -32,7 +40,10 @@
 <% end %>
 <% end %>
 <% if !current_user %>
-  <p><em><%= link_to 'Login', new_user_session_path %> to share your response.</em></p>
+<p>
+  <em><%= link_to 'Login', new_user_session_path %>
+    to share your response.</em>
+</p>
 <% end %>
 
 <h2>User Responses:</h2>

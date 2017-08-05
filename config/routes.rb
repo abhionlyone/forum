@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :tags
+  resources :my_account, only: [:index, :update]
+  resources :tags, only: [:index, :create, :new]
   resources :answers
   resources :questions do
     collection do

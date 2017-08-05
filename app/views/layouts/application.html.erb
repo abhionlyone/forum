@@ -57,9 +57,9 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
-          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete%></a></li>
+          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => "btn btn-danger"%></a></li>
           <% else %>
-          <li><%= link_to 'Signin', new_user_session_path %></a></li>
+          <li><%= link_to 'Signin', new_user_session_path, :class => "btn btn-success" %></a></li>
           <% end %>
         </ul>
       </div>
@@ -75,9 +75,6 @@
       </div>
       <!--/row-->
 
-      <footer>
-        <p>&copy; Company 2017</p>
-      </footer>
 
     </div>
     <!-- /container -->

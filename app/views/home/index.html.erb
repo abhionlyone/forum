@@ -15,7 +15,7 @@
       <th><%= model_class.human_attribute_name(:title) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:user_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -24,10 +24,11 @@
         <td><%= link_to question.id, question_path(question) %></td>
         <td><%= link_to question.title, question_path(question) %></td>
         <td><%= question.description %></td>
-        <td><%= question.user_id %></td>
-        <td><%=l question.created_at %></td>
+        <td><%= question.user.email %></td>
+        <td><%= time_ago_in_words(question.created_at) %> ago</td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%= link_to 'Update your interests to get relevant suggestions', my_account_index_path, :class => "btn btn-success" %>
 <% end %>

@@ -1,0 +1,13 @@
+<%= form_for @user, :url => url_for(:controller => 'my_account', :action => 'update', id: current_user.id), :html => { :class => "form-horizontal question" } do |f| %>
+<div class="form-group">
+  <%= f.label :tags,'Update your interests', :class => 'control-label col-lg-2' %>
+  <div class="col-lg-16">
+    <%= f.select(:tags, options_for_select(Tag.all.map {|s| [s.name, s.id]},@user.user_tags.pluck(:tag_id)),{ :include_blank => "Please select"}, { :multiple => true}) %>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-lg-offset-2 col-lg-10">
+    <%= f.submit 'Update Interests', :class => 'btn btn-primary' %>
+  </div>
+</div>
+<% end %>

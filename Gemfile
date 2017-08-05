@@ -24,6 +24,7 @@ gem 'paperclip', '~> 5.1'
 gem 'aws-sdk', '~> 2.9', '>= 2.9.39'
 gem 'remotipart', '~> 1.3', '>= 1.3.1'
 gem 'bootstrap-glyphicons'
+gem 'bootstrap-multiselect-rails'
 gem 'rails-erd', require: false, group: :development
 
 group :development, :test do
@@ -38,10 +39,10 @@ group :development do
   gem 'spring'
   gem 'puma', '~> 3.8', '>= 3.8.2'
   gem 'brakeman', :require => false
-  gem 'faker', '~> 1.7', '>= 1.7.3'
 end
 
 group :test do
+  gem 'faker', '~> 1.7', '>= 1.7.3'
   gem 'capybara', '~> 2.13'
   gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
   gem 'launchy', '~> 2.4', '>= 2.4.3'
